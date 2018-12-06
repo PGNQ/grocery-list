@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
+import OptionsListPage from './components/options-list-page.js'
+
+ReactDOM.render( <OptionsListPage/>
 
 
 
