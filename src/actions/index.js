@@ -1,0 +1,17 @@
+import axios from "axios";
+
+const ROOT_URL = 'http://localhost3001:/data-corn-flakes';
+
+export const FETCH_PRODUCT = "FETCH_PRODUCT";
+
+export function fetchProduct(product) {
+  const url = `${ROOT_URL}`;
+  const request = axios.get(url)
+
+  console.log('Request', request);
+
+  return {
+    type: FETCH_PRODUCT,
+    payload: request
+  };
+}
