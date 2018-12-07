@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -9,7 +8,9 @@ import SearchBar from './components/search-page';
 import reducers from './reducers';
 import PriceList from './components/product-pricelist-page';
 import OptionsListPage from './components/options-list-page';
+import GroceryListPage from './components/grocery-list-page';
 
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.css'
 
 

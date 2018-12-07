@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import OptionItem from './option-item.js'
+import OptionItem from './option-item.js';
+import _ from 'lodash';
+import { connect } from 'react-redux';
 
 
 class OptionsListPage extends Component {
 
-  render() {
 
+  renderOptionItem() {
+
+  }
+
+  render() {
     return (
       <div className="container">
         <h1 className="my-4">Select One Item Option</h1>
-        <OptionItem />
+        {this.renderOptionItem()}
       </div>
     );
   }

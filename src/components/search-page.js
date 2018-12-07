@@ -17,12 +17,13 @@ class SearchBar extends Component {
   onSearchSubmit = (event) => {
     event.preventDefault();
 
-    //fetches our weather data
+    //fetches our product data
     this.props.fetchProduct(this.state.search);
     this.setState({ search: ""});
   }
 
   render() {
+    // console.log(this.props);
     return (
       <form onSubmit={this.onSearchSubmit} className="input-group">
         <input
