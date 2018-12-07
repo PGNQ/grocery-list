@@ -11,6 +11,7 @@ import promise from 'redux-promise';
 
 import SearchBar from './components/search-page';
 import reducers from './reducers';
+import PriceList from './components/product-pricelist-page';
 
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -23,7 +24,8 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/"component={SearchBar} />
+          <Route exact path="/"component={SearchBar} />
+          <Route path='/pricelist'  component={PriceList} />
         </Switch>
       </div>
     </BrowserRouter>
