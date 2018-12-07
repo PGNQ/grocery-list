@@ -27,7 +27,9 @@ class SearchBar extends Component {
   render() {
     // console.log(this.props);
     return (
-      <form onSubmit={this.onSearchSubmit} className="input-group">
+      <div>
+        <h1>Grocery BNB</h1>
+        <form onSubmit={this.onSearchSubmit} className="input-group">
         <input
           placeholder="Search for a product"
           className="form-control"
@@ -37,7 +39,9 @@ class SearchBar extends Component {
         <span className="input-group-btn">
          <button type ="submit" className ="btn btn-secondary">Search</button>
         </span>
-      </form>
+        </form>
+      </div>  
+
     );
   }
 }

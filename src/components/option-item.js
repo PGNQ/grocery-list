@@ -1,6 +1,6 @@
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 
 
 class OptionItem extends Component {
@@ -11,19 +11,20 @@ class OptionItem extends Component {
     const upc = this.props.product.upc;
 
     return (
-
-      <div className="row">
-        <div className="col-md-4 col-sm-6">
-          <div className="card bg-light h-100">
-            <div className="card-body">
-              <h4 className="card-title">
-                <Link to={`/pricelist/${upc}`}>{title}</Link>
-              </h4>
-            </div>
+      <div className="mt-4">
+        <div className="row">
+          <div className="col-md-4 col-sm-6">
+            <div className="card bg-light h-100">
+              <div className="card-body">
+                <h4 className="card-title">
+                  <Link to={`/pricelist/${upc}`}>{title}</Link>
+                </h4>
+              </div>
             <img className="card-img" src={image} alt=""/>
           </div>
         </div>
       </div>
+    </div>
     );
   }
 }
