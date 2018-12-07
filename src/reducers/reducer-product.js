@@ -6,8 +6,6 @@ export default function(state = {cart:[]}, action) {
       case FETCH_PRODUCT:
         return {...state, items: action.payload.items };
       case ADD_TO_CART:
-      console.log(state);
-      console.log('payload', action.payload);
         return {...state, cart: [...state.cart, action.payload]};
         
       default:

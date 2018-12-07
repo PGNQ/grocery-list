@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addToCart } from '../actions';
+import {Redirect} from 'react-router-dom';
 
 
 
@@ -16,13 +17,9 @@ class PriceList extends Component {
     };
 
     handleClick(e) {
-       console.log(e);
-
-      
-
         this.props.addToCart(e);
+        this.props.history.push('/grocerylist');
 
-        console.log("Clicked!", this.props);
     };
 
 
