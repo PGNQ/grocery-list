@@ -8,7 +8,9 @@ import {addToCart} from '../actions';
 
 //based on the selected option item, display the list of stores and prices
 class PriceList extends Component {
-     
+     handleClick(){
+         console.log("Clicked!");
+     };
     
 
      render () {
@@ -31,8 +33,14 @@ class PriceList extends Component {
             const merchant = offer.merchant;
             const price = offer.price;
             return (
-            <li key={index}>{merchant} - {price}</li>);
-        });
+            <a key={index}
+                tabIndex="0" 
+                onClick={this.handleClick.bind(this)}>
+                <li>
+                    {merchant} - {price}
+                </li>
+            </a>
+        )});
 
         return(
             <div>
@@ -55,4 +63,4 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch){
      return bindActionCreators({addToCart},dispatch);
 }
-export default connect(mapStateToProps)(mapDispatchToProps)(PriceList);
+export default connect(mapStateToProps, mapDispatchToProps)(PriceList);
