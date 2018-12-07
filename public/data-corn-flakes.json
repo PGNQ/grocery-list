@@ -1,4 +1,4 @@
-{
+export const cornFlakes = {
   "code": "OK",
   "total": 576,
   "offset": 5,
