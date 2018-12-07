@@ -1,4 +1,4 @@
-import { connect } from "react-redux";
+
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ class OptionItem extends Component {
           <div className="card bg-light h-100">
             <div className="card-body">
               <h4 className="card-title">
-                <Link to={`/pricelist/${upc}`}><a href="#">{title}</a></Link>
+                <Link to={`/pricelist/${upc}`}>{title}</Link>
               </h4>
             </div>
             <img className="card-img" src={image} alt=""/>
