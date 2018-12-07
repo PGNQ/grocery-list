@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import OptionItem from './option-item.js'
-import 'bootstrap/dist/css/bootstrap.css';
 
 
 class OptionsListPage extends Component {

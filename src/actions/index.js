@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ROOT_URL = 'http://localhost3001:/data-corn-flakes';
+const ROOT_URL = 'http://localhost:3001/data-corn-flakes.json';
 
 export const FETCH_PRODUCT = "FETCH_PRODUCT";
 
