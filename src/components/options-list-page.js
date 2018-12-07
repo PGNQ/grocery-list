@@ -9,7 +9,7 @@ class OptionsListPage extends Component {
 
 
   render() {
-    const products = this.props.items[0].map((product, index) => {
+    const products = this.props.items.map((product, index) => {
       return (
         <OptionItem key={index} product={product} />
       )
@@ -25,7 +25,7 @@ class OptionsListPage extends Component {
 }
 
 function mapStateToProps(state) {
-  return { items: state.product };
+  return { items: state.product.items };
 }
 
 export default connect(mapStateToProps)(OptionsListPage);
