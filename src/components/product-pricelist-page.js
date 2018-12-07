@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {addToCart} from '../actions';
 // import {cornFlakes} from '../data/data-corn-flakes';
 
 
@@ -11,55 +13,46 @@ class PriceList extends Component {
 
      render () {
          //gets the upc as an object
-        const upc = this.props.match.params;
+        const upc = this.props.match.params.upc;
                 console.log(upc);
 
         const item = this.props.items.find(item => 
-            item.upc === upc.upc);
+            item.upc === upc);
         
         console.log(item);
 
-        // const title = this.props.title;
-        // console.log(title);
+        const offers = item.offers;
+        console.log(offers);
+
+        const title = item.title;
+        console.log(title);
+
+        const storePriceList = offers.map((offer, index) => {
+            const merchant = offer.merchant;
+            const price = offer.price;
+            return (
+            <li key={index}>{merchant} - {price}</li>);
+        });
 
         return(
             <div>
                 <h3>
-                    {/* {title} */}
+                    {title}
                 </h3>
                 <ul>
-                    list of stores and prices go here
+                    {storePriceList}
                 </ul>
             </div>        
             )
-    }
-
-
-
-    
-    renderList() {
-        
-        // const StorePriceList = offerInfo.map(offer  => {
-        //     const merchant = offer.merchant;
-        //     const price = offer.price;
-        //     return {merchant, price};
-        // })}
-    
-        
-        // return (
-        //     <ul>
-        //         {offerInfo.map(offer => {
-        //           return <li>{offer.merchant} - {offer.price}</li>  
-        //         })}
-        //         {/* // {this.renderPrices()} */}
-        //     </ul>
-        // );
-    }
+    }  
 };
 
 
 function mapStateToProps(state) {
-  return { items: state.product };
+  return { items: state.product.items };
 }
 
-export default connect(mapStateToProps)(PriceList);
+function mapDispatchToProps(dispatch){
+     return bindActionCreators({addToCart},dispatch);
+}
+export default connect(mapStateToProps)(mapDispatchToProps)(PriceList);
