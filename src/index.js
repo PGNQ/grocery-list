@@ -23,7 +23,7 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route exact path="/" component={SearchBar} />
-          <Route path='/pricelist'  component={PriceList} />
+          <Route path='/pricelist/:upc'  component={PriceList} />
           <Route path='/optionslist' component={OptionsListPage} />
           <Route path='/grocerylist' component={GroceryListPage} />
         </Switch>

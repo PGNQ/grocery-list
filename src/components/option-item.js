@@ -1,22 +1,26 @@
 import { connect } from "react-redux";
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class OptionItem extends Component {
 
   render() {
+    const title = this.props.product.title;
+    const image = this.props.product.images[0];
+    const upc = this.props.product.upc;
 
     return (
+
       <div className="row">
         <div className="col-md-4 col-sm-6">
           <div className="card bg-light h-100">
             <div className="card-body">
               <h4 className="card-title">
-                <a href="#">Item Option 1</a>
+                <Link to={`/pricelist/${upc}`}><a href="#">{title}</a></Link>
               </h4>
-              <p className="card-text">Description of the item.</p>
             </div>
-            <img className="card-img" src="http://placehold.it/700x400" alt=""/>
+            <img className="card-img" src={image} alt=""/>
           </div>
         </div>
       </div>
