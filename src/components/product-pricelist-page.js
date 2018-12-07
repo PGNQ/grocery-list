@@ -1,48 +1,70 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {addToCart} from '../actions';
-// import {cornFlakes} from '../data/data-corn-flakes';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addToCart } from '../actions';
 
 
 
 //based on the selected option item, display the list of stores and prices
 class PriceList extends Component {
-     handleClick(){
-         console.log("Clicked!");
-     };
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedOffer: []
+        };
+        this.handleClick = this.handleClick.bind(this);
+    };
 
-     render () {
-         //gets the upc as an object
+    handleClick(event) {
+        this.setState({ selectedOffer: event.target.value });
+
+        this.props.addToCart();
+
+        console.log("Clicked!", this.props);
+    };
+
+
+
+    render() {
+        //user chose version of product which has a upc
+
+        //gets the upc as an object
         const upc = this.props.match.params.upc;
-                console.log(upc);
+        const offerItems = this.props.items;
 
-        const item = this.props.items.find(item => 
+
+
+        //find specific item by upc in URL
+        const item = offerItems.find(item =>
             item.upc === upc);
-        
+
         console.log(item);
 
+        //access the array of offers
         const offers = item.offers;
-        console.log(offers);
+
+        // console.log(offers);
 
         const title = item.title;
-        console.log(title);
 
+        //list of offers made of individual store/price list items
         const storePriceList = offers.map((offer, index) => {
             const merchant = offer.merchant;
             const price = offer.price;
-            return (
-            <a key={index}
-                tabIndex="0" 
-                onClick={this.handleClick.bind(this)}>
-                <li>
-                    {merchant} - {price}
-                </li>
-            </a>
-        )});
 
-        return(
+            return (
+                <a key={index}
+                    tabIndex="0"
+                    onClick={this.handleClick}>
+                    <li>
+                        {merchant} - {price}
+                    </li>
+                </a>
+            )
+        });
+
+
+        return (
             <div>
                 <h3>
                     {title}
@@ -50,17 +72,17 @@ class PriceList extends Component {
                 <ul>
                     {storePriceList}
                 </ul>
-            </div>        
-            )
-    }  
+            </div>
+        )
+    }
 };
 
 
 function mapStateToProps(state) {
-  return { items: state.product.items };
+    return { items: state.product.items };
 }
 
-function mapDispatchToProps(dispatch){
-     return bindActionCreators({addToCart},dispatch);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ addToCart }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PriceList);
