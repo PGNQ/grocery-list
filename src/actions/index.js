@@ -21,7 +21,7 @@ export function fetchProduct(query) {
 }
 
 export function addToCart(item) {
-
+console.log(item);
   return {
     type: ADD_TO_CART,
     payload: item
