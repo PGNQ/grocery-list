@@ -1,53 +1,54 @@
 import React, { Component } from 'react';
-import {cornFlakes} from '../data/data-corn-flakes';
-//import PropTypes???
-
-//import item from '../index.js';
+import {connect} from 'react-redux';
+// import {cornFlakes} from '../data/data-corn-flakes';
 
 
 
 //based on the selected option item, display the list of stores and prices
 class PriceList extends Component {
-    renderTitle () {
+     render () {
+
+        const title = this.props.title;
+        console.log(title);
+
         return(
-            <h3>
-                {cornFlakes.items.title}
-            </h3>
-        )
-    }
-
-
-    // renderPrices () {
-    //     return(
-    //         //list every store/price
-    //         //may click 1 item to add to GroceryList
-    //         <li 
-    //         //onClick????
-    //             key={cornFlakes.items.upc}>           
-                
-                
-    //         </li>
-    //     )
-    // }
-
-    renderList() {
-        const offerInfo = cornFlakes.items.offers;
-        // const StorePriceList = offerInfo.map(offer  => {
-        //     const merchant = offer.merchant;
-        //     const price = offer.price;
-        //     return {merchant, price};
-        // })}
-        
-        return (
-            <ul>
-                {offerInfo.map(offer => {
-                  return <li>{offer.merchant} - {offer.price}</li>  
-                })}
-                {/* // {this.renderPrices()} */}
-            </ul>
-        );
+            <div>
+                <h3>
+                    {title}
+                </h3>
+                <ul>
+                    list of stores and prices go here
+                </ul>
+            </div>        
+            )
     }
 }
 
 
-export default PriceList
+    
+//     renderList() {
+//         const offerInfo = cornFlakes.items.offers;
+//         // const StorePriceList = offerInfo.map(offer  => {
+//         //     const merchant = offer.merchant;
+//         //     const price = offer.price;
+//         //     return {merchant, price};
+//         // })}
+//     }
+        
+//         return (
+//             <ul>
+//                 {offerInfo.map(offer => {
+//                   return <li>{offer.merchant} - {offer.price}</li>  
+//                 })}
+//                 {/* // {this.renderPrices()} */}
+//             </ul>
+//         );
+//     }
+// }
+
+function mapStateToProps(state) {
+debugger;
+  return { items: state.product };
+}
+
+export default connect(mapStateToProps)(PriceList);
