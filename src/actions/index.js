@@ -2,6 +2,7 @@ import axios from "axios";
 
 const ROOT_URL = 'http://localhost:3000/data-corn-flakes.json';
 
+
 export const FETCH_PRODUCT = "FETCH_PRODUCT";
 
 export function fetchProduct(product) {

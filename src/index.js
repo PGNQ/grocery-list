@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './index.css';
-
-
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
-
 import SearchBar from './components/search-page';
 import reducers from './reducers';
 import PriceList from './components/product-pricelist-page';
+import OptionsListPage from './components/options-list-page';
 
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -24,8 +21,10 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route exact path="/"component={SearchBar} />
+          <Route exact path="/" component={SearchBar} />
           <Route path='/pricelist'  component={PriceList} />
+          <Route path='/optionslist' component={OptionsListPage} />
+          <Route path='/grocerylist' component={GroceryListPage} />
         </Switch>
       </div>
     </BrowserRouter>
