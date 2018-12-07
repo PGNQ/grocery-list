@@ -15,10 +15,12 @@ class PriceList extends Component {
         this.handleClick = this.handleClick.bind(this);
     };
 
-    handleClick(event) {
-        this.setState({ selectedOffer: event.target.value });
+    handleClick(e) {
+       console.log(e);
 
-        this.props.addToCart();
+      
+
+        this.props.addToCart(e);
 
         console.log("Clicked!", this.props);
     };
@@ -48,14 +50,14 @@ class PriceList extends Component {
         const title = item.title;
 
         //list of offers made of individual store/price list items
-        const storePriceList = offers.map((offer, index) => {
+        const storePriceList = offers.map((offer, updated_t) => {
             const merchant = offer.merchant;
             const price = offer.price;
 
             return (
-                <a key={index}
+                <a key={updated_t}
                     tabIndex="0"
-                    onClick={this.handleClick}>
+                    onClick={() => this.handleClick(offer)}>
                     <li>
                         {merchant} - {price}
                     </li>
