@@ -6,15 +6,19 @@ import _ from 'lodash';
 class GroceryListPage extends Component {
 
 
-  renderCart() {
-    console.log('rendering cart');
-    return (
-      <tr key={this.cart.updated_t}>
-        <td>{this.cart.title}</td>
-        <td>{this.cart.merchant}</td>
-        <td>${this.cart.price}</td>
-      </tr>
-    );
+  renderCart = () => {
+    const cartlist = this.props.cart.map(item => {
+      console.log(item);
+      return (
+        <tr key={item.updated_t}>
+          <td>{item.title}</td>
+          <td>{item.merchant}</td>
+          <td>${item.price}</td>
+        </tr>
+      );
+
+    })
+    return cartlist;
   }
 
   render() {
@@ -28,7 +32,7 @@ class GroceryListPage extends Component {
           </tr>
         </thead>
         <tbody>
-            {this.renderCart}
+            {this.renderCart()}
         </tbody>
       </table>
     );
