@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {bindActionCreators } from "redux";
 import { fetchProduct } from "../actions/index";
+import  { Redirect } from 'react-router-dom';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class SearchBar extends Component {
     //fetches our product data
     this.props.fetchProduct(this.state.search);
     this.setState({ search: ""});
+    this.props.history.push('/optionslist');
   }
 
   render() {
