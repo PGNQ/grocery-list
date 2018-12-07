@@ -474,14 +474,16 @@ class PriceList extends Component {
     }
 
     renderList() {
+        const Offers = Products.items.offers;
+        const StorePriceList = {Offers.map(offer  => {
+            const merchant = offer.merchant;
+            const price = offer.price;
+            return {merchant, price};
+        })}
+        
         return (
             <ul>
-                const Offers = Products.items.offers;
-                const StorePriceList = {Offers.map(offer  => {
-                    const merchant = offer.merchant;
-                    const price = offer.price;
-                    return {merchant, price};
-                })}
+                
                 {this.renderPrices()}
             </ul>
         )
