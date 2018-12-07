@@ -9,6 +9,7 @@ class OptionsListPage extends Component {
 
 
   render() {
+    console.log(this.props);
     const products = this.props.items.map((product, index) => {
       return (
         <OptionItem key={index} product={product} />
